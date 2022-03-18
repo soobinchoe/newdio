@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="fragment_horizontal_margin">16dp</dimen>
+    <dimen name="fragment_vertical_margin">16dp</dimen>
+    <dimen name="carousel_spacing">16dp</dimen>
+    <dimen name="sub_news_radius">10dp</dimen>
+    <dimen name="playlist_news_radius">4dp</dimen>
+    <dimen name="top_news_radius">24dp</dimen>
+    <dimen name="discover_detail_radius">4dp</dimen>
+    <dimen name="font_small">13pt</dimen>
+    <dimen name="font_original">15pt</dimen>
+    <dimen name="font_large">18pt</dimen>
+    <dimen name="swipe">72dp</dimen>
+    <dimen name="peekHeight">56dp</dimen>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_bar_home_on"
+        android:title="@string/appname" />
+
+    <item
+        android:id="@+id/liveFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_bar_live_off"
+        android:title="@string/menu_live" />
+
+    <item
+        android:id="@+id/discoverFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_bar_discover_off"
+        android:title="@string/menu_discover" />
+
+    <item
+        android:id="@+id/searchFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_bar_search_off"
+        android:title="@string/menu_search" />
+
+    <item
+        android:id="@+id/settingFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_bar_setting_off"
+        android:title="@string/menu_settings" />
+</menu>

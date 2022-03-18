@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_black"
+    tools:context=".ui.register.LoginFragment">
+
+    <ImageView
+        android:id="@+id/appIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="156dp"
+        android:background="@drawable/ic_general_newdio"
+        android:backgroundTint="@color/light_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/kakaoLoginButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/naverLoginButton"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.064">
+
+        <ImageView
+            android:id="@+id/kakaoLoginButtonBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_login_box"
+            android:backgroundTint="@color/background_kakao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/img_general_kakao"
+            app:layout_constraintStart_toStartOf="@+id/kakaoLoginButtonBox"
+            app:layout_constraintTop_toTopOf="@id/kakaoLoginButtonBox"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/social_login_kakao"
+            android:textColor="@color/background_black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/kakaoLoginButtonBox"
+            app:layout_constraintEnd_toEndOf="@id/kakaoLoginButtonBox"
+            app:layout_constraintStart_toStartOf="@id/kakaoLoginButtonBox"
+            app:layout_constraintTop_toTopOf="@id/kakaoLoginButtonBox" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/naverLoginButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/googleLoginButton"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.064">
+
+        <ImageView
+            android:id="@+id/naverLoginButtonBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_login_box"
+            android:backgroundTint="@color/background_naver"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/img_general_naver"
+            app:layout_constraintStart_toStartOf="@+id/naverLoginButtonBox"
+            app:layout_constraintTop_toTopOf="@id/naverLoginButtonBox"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/social_login_naver"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/naverLoginButtonBox"
+            app:layout_constraintEnd_toEndOf="@id/naverLoginButtonBox"
+            app:layout_constraintStart_toStartOf="@id/naverLoginButtonBox"
+            app:layout_constraintTop_toTopOf="@id/naverLoginButtonBox" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/googleLoginButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/terms"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.064">
+
+        <ImageView
+            android:id="@+id/googleLoginButtonBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_login_box"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/img_general_google"
+            app:layout_constraintStart_toStartOf="@+id/googleLoginButtonBox"
+            app:layout_constraintTop_toTopOf="@id/googleLoginButtonBox"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/social_login_google"
+            android:textColor="@color/background_black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/googleLoginButtonBox"
+            app:layout_constraintEnd_toEndOf="@id/googleLoginButtonBox"
+            app:layout_constraintStart_toStartOf="@id/googleLoginButtonBox"
+            app:layout_constraintTop_toTopOf="@id/googleLoginButtonBox" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/social_login_agree_agreement"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tncAndPrivacy"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tncAndPrivacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tnc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_terms_conditions"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/and"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_and"
+            android:textColor="@color/white"
+            android:layout_marginStart="5dp"
+            android:textSize="12dp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/tnc"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_personal_policy"
+            android:textColor="@color/white"
+            android:layout_marginStart="5dp"
+            android:textSize="12dp"
+            app:layout_constraintStart_toEndOf="@id/and"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

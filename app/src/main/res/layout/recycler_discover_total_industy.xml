@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/totalListImage"
+        android:layout_width="152dp"
+        android:layout_height="64dp"
+        android:background="@drawable/custom_home_sub_news"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/totalListImageAlpha"
+        android:layout_width="152dp"
+        android:layout_height="64dp"
+        android:background="@color/background_black"
+        android:alpha="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/totalListText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/totalListImage"
+        app:layout_constraintTop_toTopOf="@id/totalListImage"
+        app:layout_constraintBottom_toBottomOf="@id/totalListImage"/>
+
+    <ImageView
+        android:id="@+id/totalListBtn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_general_play_shadow"
+        app:layout_constraintTop_toTopOf="@id/totalListImage"
+        app:layout_constraintBottom_toBottomOf="@id/totalListImage"
+        app:layout_constraintEnd_toEndOf="@id/totalListImage"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

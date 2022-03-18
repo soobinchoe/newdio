@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recyclerViewLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="23dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circle_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/playstore"
+        app:civ_border_color="@color/medium_grey"
+        app:civ_border_width="1dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=""
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@id/circle_image"
+        app:layout_constraintEnd_toEndOf="@id/circle_image"
+        app:layout_constraintTop_toBottomOf="@id/circle_image"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/selectedColor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/custom_circle"
+        android:backgroundTint="@color/background_black"
+        android:alpha="0.79"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/heart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_general_heart_on"
+        android:backgroundTint="@color/light_green"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/selectedColor"
+        app:layout_constraintEnd_toEndOf="@+id/selectedColor"
+        app:layout_constraintTop_toTopOf="@+id/selectedColor"
+        app:layout_constraintBottom_toBottomOf="@id/selectedColor"
+        app:layout_constraintWidth_percent="0.32"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

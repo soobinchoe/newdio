@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/discoverFragment"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_black"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.discover.DiscoverFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/discoverContents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/discoverToolbar">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/homeScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:fillViewport="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:paddingBottom="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/recommendCompany"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:paddingStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/recommendCompanyText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/discover_recommended_company"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recommendCompanyRcy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            android:orientation="horizontal"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/recommendCompanyText"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/dailyCompanyRanking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="40dp"
+                        android:paddingStart="25dp"
+                        android:paddingTop="25dp"
+                        android:paddingBottom="16dp"
+                        android:background="@drawable/custom_home_top_news"
+                        android:backgroundTint="@color/dark_grey"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recommendCompany"
+                        tools:ignore="RtlSymmetry">
+
+                        <TextView
+                            android:id="@+id/dailyCompanyRankingText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/discover_daily_rank_company"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/asOfTimeDailyCompany"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_light_grey"
+                            android:layout_marginEnd="4dp"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="@id/dailyCompanyRankingText"
+                            app:layout_constraintEnd_toStartOf="@id/infoBtnDailyCompany"/>
+
+                        <ImageView
+                            android:id="@+id/infoBtnDailyCompany"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:padding="4dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_general_info_off"
+                            app:layout_constraintTop_toTopOf="@id/asOfTimeDailyCompany"
+                            app:layout_constraintBottom_toBottomOf="@id/asOfTimeDailyCompany"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:tint="@color/hint_grey" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/dailyCompanyRankingRcy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginEnd="16dp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/dailyCompanyRankingText"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/infoDailyDialog"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone"
+                            android:layout_marginEnd="25dp"
+                            android:layout_marginTop="4dp"
+                            app:layout_constraintTop_toBottomOf="@id/infoBtnDailyCompany"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <include layout="@layout/fragment_discover_info"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <me.relex.circleindicator.CircleIndicator2
+                            android:id="@+id/dailyDiscoverIndicator"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:visibility="visible"
+                            app:ci_drawable="@drawable/custom_circle"
+                            app:ci_drawable_unselected="@drawable/custom_circle_indicator"
+                            app:ci_animator="@animator/indicator_animator"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/dailyCompanyRankingRcy"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/companyRanking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="40dp"
+                        android:paddingStart="25dp"
+                        android:paddingTop="25dp"
+                        android:paddingBottom="16dp"
+                        android:background="@drawable/custom_home_top_news"
+                        android:backgroundTint="@color/dark_grey"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dailyCompanyRanking"
+                        tools:ignore="RtlSymmetry">
+
+                        <TextView
+                            android:id="@+id/companyRankingText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/discover_hot_rank_company"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/asOfTimeRealTimeCompany"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:textColor="@color/text_light_grey"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="@id/companyRankingText"
+                            app:layout_constraintEnd_toStartOf="@id/infoBtnRealTimeCompany"/>
+
+                        <ImageView
+                            android:id="@+id/infoBtnRealTimeCompany"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:padding="4dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_general_info_off"
+                            android:backgroundTint="@color/text_light_grey"
+                            app:layout_constraintTop_toTopOf="@id/asOfTimeRealTimeCompany"
+                            app:layout_constraintBottom_toBottomOf="@id/asOfTimeRealTimeCompany"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:tint="@color/hint_grey"/>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/companyRankingRcy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginEnd="16dp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/companyRankingText"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/infoRealTimeCompanyDialog"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone"
+                            android:layout_marginEnd="25dp"
+                            android:layout_marginTop="4dp"
+                            app:layout_constraintTop_toBottomOf="@id/infoBtnRealTimeCompany"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <include layout="@layout/fragment_discover_info"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <me.relex.circleindicator.CircleIndicator2
+                            android:id="@+id/discoverIndicator"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:visibility="visible"
+                            app:ci_drawable="@drawable/custom_circle"
+                            app:ci_drawable_unselected="@drawable/custom_circle_indicator"
+                            app:ci_animator="@animator/indicator_animator"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/companyRankingRcy"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/totalIndustry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="40dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/companyRanking">
+
+                        <TextView
+                            android:id="@+id/industryNewsText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/discover_industry_news"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/totalIndustryRcy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            android:orientation="horizontal"
+                            app:spanCount="2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/industryNewsText"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/industryRanking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="40dp"
+                        android:paddingStart="25dp"
+                        android:paddingTop="25dp"
+                        android:paddingBottom="18dp"
+                        android:layout_marginBottom="100dp"
+                        android:background="@drawable/custom_home_top_news"
+                        android:backgroundTint="@color/dark_grey"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/totalIndustry"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/industryRankingText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/discover_hot_rank_industry"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/asOfTimeindustry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:textColor="@color/text_light_grey"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="@id/industryRankingText"
+                            app:layout_constraintEnd_toStartOf="@id/infoBtnDailyindustry"/>
+
+                        <ImageView
+                            android:id="@+id/infoBtnDailyindustry"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:padding="4dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_general_info_off"
+                            android:backgroundTint="@color/text_light_grey"
+                            app:layout_constraintTop_toTopOf="@id/asOfTimeindustry"
+                            app:layout_constraintBottom_toBottomOf="@id/asOfTimeindustry"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:tint="@color/hint_grey"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/industryRankingRcy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/industryRankingText"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/infoIndustryDialog"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone"
+                            android:layout_marginEnd="25dp"
+                            android:layout_marginTop="4dp"
+                            app:layout_constraintTop_toBottomOf="@id/infoBtnDailyindustry"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <include layout="@layout/fragment_discover_info"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loginPopup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/loginPopupBackground"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:background="@drawable/custom_register2_bottom1"
+                android:alpha="0.9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/loginPopupBtnCon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/loginPopupText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/popup_request_login"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/loginPopupBtn"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/loginPopupBtn"
+                    android:layout_width="54dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/custom_login_btn"
+                    android:text="@string/popup_login"
+                    android:textSize="11sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/deleteBtn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_general_delete"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/errorFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/discoverToolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <include
+            layout="@layout/fragment_error"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/discoverToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/discoverToolbarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintTop_toTopOf="@id/discoverToolbar"
+            app:layout_constraintBottom_toBottomOf="@id/discoverToolbar"
+            app:layout_constraintStart_toStartOf="@id/discoverToolbar"/>
+
+        <ImageView
+            android:id="@+id/searchBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_bar_search_off"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
